@@ -26,67 +26,90 @@ var candidato3 = { nome: "Mamãe falei", votos: 0};
 var nulos = { nome: "Nulo", votos: 0};
 var brancos = { nome: "Branco", votos: 0};
 
- function autorizaVoto() {
-  let borndate = +prompt("Em que ano você nasceu?");
+ function autorizaVoto(borndate) {
   var year = new Date().getFullYear();
   let age = year - borndate;
 
     if (age >= 18 && age < 70) {
         console.log(`Como você tem ${age} anos seu voto é obrigatorio!`);
-        return true;    
+        return false;    
      } else if (age >= 16 && age < 18 || age > 70 && age < 120) {
         console.log(`Como você tem entre 16 e 18 anos seu voto é opcional`)
-        return true
+        return false
      } else if (age > 120 || age < 0) {
           console.log("Err")
-          return false
+          return true
     } else {
         console.log("Como você tem menos de 16 anos seu voto foi Negado!")
-        return false
+        return true
     }
 
 }
 
 
-function votacao() {
-    console.log (`
+function votacao(autorizaVoto, voto) {
+  console.log (`
     para votar no ${candidato1.nome} digite "1" 
     para votar no ${candidato2.nome} digite "2"
     para votar no ${candidato3.nome} digite "3"
-    para votar no ${nulos.nome} digite "4"
-    para votar no ${brancos.nome} digite "5"`
+    para votar ${nulos.nome} digite "4"
+    para votar em ${brancos.nome} digite "5"`
     );
-    let num = +prompt("   Voto: ")
-      if (num == 1) {
+    voto = +prompt("   Voto: ")
+      if (voto == 1) {
         console.log(`Você votou no ${candidato1.nome}`)
+        candidato1.votos++
       }
-      if (num == 2) {
+      else if (voto == 2) {
         console.log(`Você votou no ${candidato2.nome}`)
+        candidato2.votos++
       }
-      if (num == 3) {
+      else if (voto == 3) {
         console.log(`Você votou no ${candidato3.nome}`)
+        candidato3.votos++
       }
-      if (num == 4) {
+      else if (voto == 4) {
         console.log(`Você votou ${nulos.nome}`)
+        nulos.votos++
       }
-      if (num == 5) {
+      else if (voto == 5) {
         console.log(`Você votou em ${brancos.nome}`)
+        brancos.votos++
       }
 }
 
 let votando = prompt("Deseja votar [s/n] ?")
   while (votando == "s") {  // validação simples do input para continuar jogando
-    autorizaVoto();
+    while (autorizaVoto(borndate = +prompt("Em que ano você nasceu?")));
     votacao()
     votando = prompt("Alguem mais deseja votar [s/n]?")
+    if (votando == "n") {
+    exibirResultados()}
 };
 
+function exibirResultados() {
 
+  let listacandidatos = [];
+  listacandidatos.push(candidato1)
+  listacandidatos.push(candidato2)
+  listacandidatos.push(candidato3)
+  
+  let nulosBrancos = [];
+  nulosBrancos.push(nulos)
+  nulosBrancos.push(brancos)
 
-
-
-
-
+  listacandidatos.sort((a, b) => {
+    if (b.votos < a.votos) {
+           return-1
+       } else {
+           return true;
+       }
+  });
+  console.log(listacandidatos)
+  console.log(nulosBrancos)
+  votoFinal = (listacandidatos[0].votos + brancos.votos)
+  console.log(`O candidato ganhardor da eleção é ${listacandidatos[0].nome} com ${votoFinal} votos.`) 
+}
 
 
 
