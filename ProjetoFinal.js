@@ -72,13 +72,15 @@ while (true) {
             voce foi promovido a ${this.cargo}`)
         }
     }
-    let pessoa = new estagiario(prompt("Digite o nome do seu nome: "));
+  
+
+  
+
+// definindo quem é o personagem e apresentando o jogo
+let pessoa = new estagiario(prompt("Digite o nome do seu nome: "));
 
     console.log(`Escolhas tem consequencias! ${pessoa.nome} se lembrava hoje em ${year} as consequencias das escolhas que definiram sua vida em 2012`);
     console.log("");
-
-
-
 
 
 
