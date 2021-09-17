@@ -7,7 +7,7 @@ while (true) {
         constructor(nome) {
             this.nome = nome
         }         
-
+// historia
         acordar() {
             console.log(`
             ${pessoa.nome} acordou com uma mensagem no seu celular dizendo
@@ -20,17 +20,17 @@ while (true) {
         dormir() {
             console.log(`
             ${pessoa.nome} resolveu dormir mais um pouco entretanto
-             acordou asustado quando seu chefe o ligou, dizendo que o servidor do seu 
-             serviço estava com problemas porem como ele tinha dormido demais seu chefe
-              ficou puto com ele apos o mesmo chegar atrasado
+            acordou asustado quando seu chefe o ligou, dizendo que o servidor do seu 
+            serviço estava com problemas porem como ele tinha dormido demais seu chefe
+            ficou puto com ele apos o mesmo chegar atrasado
               `);
         }
 
         ram() {
             console.log(`
             Já que o servidor tinha absurdos 4gb de ram, ${pessoa.nome} pensou que
-             isso com certeza estava ocasionando os problemas, ele solicita para 
-             seu chefe então que faça um upgrade de ram na maquina
+            isso com certeza estava ocasionando os problemas, ele solicita para 
+            seu chefe então que faça um upgrade de ram na maquina
              `);
         }
 
@@ -46,7 +46,10 @@ while (true) {
         }
 
         badend() {
-            console.log(`Suas escolhas geramram consequencias voce não acordou cedo e nem conseguiu resolver o problema, pois não era a placa de video e sim a falta de memoria ram,
+            console.log(`
+           Suas escolhas geramram consequencias voce não acordou 
+           cedo e nem conseguiu resolver o problema, pois não era
+           a placa de video e sim a falta de memoria ram,
             voce esta demitido!`);
         }
 
@@ -56,7 +59,7 @@ while (true) {
 
     
     };
-
+// consequencia 
     class funcionario extends estagiario {
         constructor(nome, cargo) {
           super(nome);
@@ -74,6 +77,14 @@ while (true) {
     console.log(`Escolhas tem consequencias! ${pessoa.nome} se lembrava hoje em ${year} as consequencias das escolhas que definiram sua vida em 2012`);
     console.log("");
 
+
+
+
+
+
+
+
+// escolhas
 let primeiraescolha = +prompt("Digite 0 para cochilar, ou, Digite 1 para acordar: ");
    
     if (primeiraescolha == 1) {
@@ -107,7 +118,7 @@ let segundaescolha = +prompt(`    // prompt-sync da erros no vs code a partir da
     }
  
             
-      function final() {
+      function final() { // calcula e gera resultado para as escolhas
         let pessoa2 = new funcionario()  
         let final = primeiraescolha + segundaescolha
         console.log(final)
